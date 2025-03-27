@@ -24,7 +24,7 @@ function submit_change(id) {
 }
 
 function populate_form() {
-	var xhr= new XMLHttpRequest();
+	const xhr= new XMLHttpRequest();
 	xhr.open('GET', 'get_user_data.php', true);
 	xhr.onreadystatechange= function() {
 		if (this.readyState!==4) {
@@ -38,14 +38,14 @@ function populate_form() {
 		users.forEach(updateTable);
 
 		function updateTable (user) {
-			var row = table_body.insertRow(0);
-			var cell0 = row.insertCell(-1);
+			const row = table_body.insertRow(0);
+			const cell0 = row.insertCell(-1);
 			cell0.innerHTML = user['user_id'] + '<input type="hidden" id="user_id_' + user['user_id'] + '" name="user_id" value="' + user['user_id'] + '" />';
-			var cell1 = row.insertCell(1);
+			const cell1 = row.insertCell(1);
 			cell1.innerHTML = '<input type="text" id="first_name_' + user['user_id'] + '" name="first_name" value="' + user['first_name'] + '" />';
-			var cell2 = row.insertCell(2);
+			const cell2 = row.insertCell(2);
 			cell2.innerHTML = '<input type="text" id="surname_' + user['user_id'] + '" name="surname" value="' + user['surname'] + '" />';
-			var cell3 = row.insertCell(3);
+			const cell3 = row.insertCell(3);
 			cell3.innerHTML = '<input type="button" value="Update" onclick="submit_change(' + user['user_id'] + ')" />';
 		}
 	};
